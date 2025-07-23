@@ -1,0 +1,11 @@
+#item_description_output {
+    border-width: 1px !important;
+    border-style: solid !important;
+    border-color: #cccccc !important;
+    padding: 10px !important;
+    border-radius: 5px !important;
+}
+
+#refresh_button {
+    font-size: 3.5em;
+}
