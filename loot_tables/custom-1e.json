@@ -211,8 +211,8 @@
                     "name": "Wands",
                     "die_size": 20,
                     "add_level": true,
-                    "ps_die_size": 60,
-                    "ps_mod": 40,
+                    "ps_die_size": 10,
+                    "ps_mod": 90,
                     "use_prefix": true,
                     "use_suffix": true
                 },
@@ -681,39 +681,12 @@
             "knives": {
                 "dagger": {
                     "min": 1,
-                    "max": 10,
+                    "max": 999,
                     "name": "Dagger",
                     "description": "placeholder",
                     "effect": "damage 1d4/1d3, thrown 10/20/30 (ROF 2/1)",
                     "xp": 0,
                     "gp": 5
-                },
-                "throwing_knife": {
-                    "min": 11,
-                    "max": 14,
-                    "name": "Throwing Knife",
-                    "description": "placeholder",
-                    "effect": "damage 1d3/1d3, thrown 10/20/30 (ROF 3/1)",
-                    "xp": 0,
-                    "gp": 10
-                },
-                "blade": {
-                    "min": 15,
-                    "max": 20,
-                    "name": "Blade",
-                    "description": "placeholder",
-                    "effect": "damage 1d4/1d4, thrown 10/20/30 (ROF 1/1)",
-                    "xp": 0,
-                    "gp": 20
-                },
-                "Kris": {
-                    "min": 21,
-                    "max": 999,
-                    "name": "Kris",
-                    "description": "placeholder",
-                    "effect": "damage 1d4+1/1d4, thrown 10/20/30 (ROF 1/1)",
-                    "xp": 0,
-                    "gp": 40
                 }
             },
             "swords": {
@@ -735,26 +708,8 @@
                     "xp": 0,
                     "gp": 10
                 },
-                "sabre": {
-                    "min": 11,
-                    "max": 13,
-                    "name": "Sabre",
-                    "description": "placeholder",
-                    "effect": "damage 1d6+1/1d8",
-                    "xp": 0,
-                    "gp": 20
-                },
-                "blade_sword": {
-                    "min": 14,
-                    "max": 15,
-                    "name": "Blade Sword",
-                    "description": "placeholder",
-                    "effect": "damage 1d6+1/1d8+1",
-                    "xp": 0,
-                    "gp": 25
-                },
                 "scimitar": {
-                    "min": 16,
+                    "min": 11,
                     "max": 17,
                     "name": "Scimitar",
                     "description": "placeholder",
@@ -762,18 +717,9 @@
                     "xp": 0,
                     "gp": 30
                 },
-                "falchion": {
-                    "min": 18,
-                    "max": 18,
-                    "name": "Falchion",
-                    "description": "placeholder",
-                    "effect": "damage 2d4/1d6",
-                    "xp": 0,
-                    "gp": 35
-                },
                 "long_sword": {
-                    "min": 19,
-                    "max": 23,
+                    "min": 18,
+                    "max": 22,
                     "name": "Long Sword",
                     "description": "placeholder",
                     "effect": "damage 1d8/1d12",
@@ -781,7 +727,7 @@
                     "gp": 50
                 },
                 "broad_sword": {
-                    "min": 24,
+                    "min": 23,
                     "max": 27,
                     "name": "Broad Sword",
                     "description": "placeholder",
@@ -789,17 +735,8 @@
                     "xp": 0,
                     "gp": 75
                 },
-                "claymore": {
-                    "min": 28,
-                    "max": 28,
-                    "name": "Claymore",
-                    "description": "placeholder",
-                    "effect": "damage 1d8+1/1d12+1",
-                    "xp": 0,
-                    "gp": 100
-                },
                 "bastard_sword": {
-                    "min": 29,
+                    "min": 28,
                     "max": 31,
                     "name": "Bastard Sword",
                     "description": "placeholder",
@@ -809,19 +746,10 @@
                 },
                 "two-handed_sword": {
                     "min": 32,
-                    "max": 35,
+                    "max": 999,
                     "name": "Two-Handed Sword",
                     "description": "placeholder",
                     "effect": "damage 1d10/3d6 two-handed",
-                    "xp": 0,
-                    "gp": 20
-                },
-                "great_sword": {
-                    "min": 36,
-                    "max": 999,
-                    "name": "Great Sword",
-                    "description": "placeholder",
-                    "effect": "damage 1d12/2d8 two-handed, minimum Strength 18",
                     "xp": 0,
                     "gp": 20
                 }
@@ -836,19 +764,10 @@
                     "xp": 0,
                     "gp": 1
                 },
-                "spiked_club": {
+                "footmans_mace": {
                     "min": 9,
-                    "max": 10,
-                    "name": "Spiked Club",
-                    "description": "placeholder",
-                    "effect": "damage 1d6/1d6, thrown 10/20/30 (ROF 1/1)",
-                    "xp": 0,
-                    "gp": 5
-                },
-                "mace": {
-                    "min": 11,
                     "max": 17,
-                    "name": "Mace",
+                    "name": "Footman's Mace",
                     "description": "placeholder",
                     "effect": "damage 1d6+1/1d6",
                     "xp": 0,
@@ -863,41 +782,23 @@
                     "xp": 0,
                     "gp": 20
                 },
-                "flail": {
+                "footmans_flail": {
                     "min": 22,
                     "max": 24,
-                    "name": "Flail",
+                    "name": "Footman's Flail",
                     "description": "placeholder",
                     "effect": "damage 1d6+1/2d4 two-handed",
                     "xp": 0,
                     "gp": 50
                 },
-                "war_hammer": {
-                    "min": 25,
-                    "max": 30,
-                    "name": "War Hammer",
-                    "description": "placeholder",
-                    "effect": "damage 1d8/1d8 two-handed",
-                    "xp": 0,
-                    "gp": 60
-                },
                 "maul": {
                     "min": 31,
-                    "max": 32,
+                    "max": 999,
                     "name": "Maul",
                     "description": "placeholder",
-                    "effect": "damage 1d10/1d8+1, two-handed, minimum Strength 18",
+                    "effect": "damage 1d8/1d8",
                     "xp": 0,
-                    "gp": 200
-                },
-                "malus": {
-                    "min": 33,
-                    "max": 999,
-                    "name": "Malus",
-                    "description": "placeholder",
-                    "effect": "damage 1d10/1d10 two-handed, minimum Strength 18",
-                    "xp": 0,
-                    "gp": 200
+                    "gp": 50
                 }
             },
             "spears": {
@@ -912,30 +813,12 @@
                 },
                 "spear": {
                     "min": 9,
-                    "max": 15,
+                    "max": 20,
                     "name": "Spear",
                     "description": "placeholder",
-                    "effect": "damage 1d6/1d8, thrown 10/20/30 (ROF 1/1)",
+                    "effect": "damage 1d6/1d8, thrown 10/20/30 (ROF 1/1), double damage when set for charge",
                     "xp": 0,
                     "gp": 10
-                },
-                "pilum": {
-                    "min": 16,
-                    "max": 17,
-                    "name": "Pilum",
-                    "description": "placeholder",
-                    "effect": "damage 1d6/1d8, thrown 10/20/30 (ROF 1/1)",
-                    "xp": 0,
-                    "gp": 25
-                },
-                "glaive": {
-                    "min": 18,
-                    "max": 21,
-                    "name": "Glaive",
-                    "description": "placeholder",
-                    "effect": "damage 1d8/1d8, thrown 10/20/30 (ROF 1/1)",
-                    "xp": 0,
-                    "gp": 30
                 },
                 "trident": {
                     "min": 22,
@@ -955,12 +838,12 @@
                     "xp": 0,
                     "gp": 40
                 },
-                "brandistock": {
+                "halberd": {
                     "min": 31,
                     "max": 999,
-                    "name": "Brandistock",
+                    "name": "Halberd",
                     "description": "placeholder",
-                    "effect": "damage 1d10/2d6, minimum Strength 18, cannot be disarmed",
+                    "effect": "damage 1d10/2d6",
                     "xp": 0,
                     "gp": 100
                 }
@@ -980,16 +863,16 @@
                     "max": 15,
                     "name": "Scythe",
                     "description": "placeholder",
-                    "effect": "damage 1d10/1d12 two-handed, minimum Strength 18",
+                    "effect": "damage 1d10/1d12 two-handed",
                     "xp": 0,
                     "gp": 40
                 },
-                "poleaxe": {
+                "lucern_hammer": {
                     "min": 16,
                     "max": 19,
-                    "name": "Poleaxe",
+                    "name": "Lucern Hammer",
                     "description": "placeholder",
-                    "effect": "damage 1d10/1d12 two-handed, minimum Strength 18",
+                    "effect": "damage 1d10/1d12 two-handed",
                     "xp": 0,
                     "gp": 50
                 },
@@ -998,81 +881,36 @@
                     "max": 999,
                     "name": "Halberd",
                     "description": "placeholder",
-                    "effect": "damage 1d10/2d6 two-handed, minimum Strength 18",
+                    "effect": "damage 1d10/2d6 two-handed",
                     "xp": 0,
                     "gp": 80
                 }
             },
             "axes": {
-                "small_axe": {
+                "hand_axe": {
                     "min": 1,
-                    "max": 9,
-                    "name": "Small Axe",
+                    "max": 17,
+                    "name": "Hand Axe",
                     "description": "placeholder",
-                    "effect": "damage 1d6/1d4",
+                    "effect": "damage 1d6/1d4, thrown 10/20/30 (ROF 1/1)",
                     "xp": 0,
                     "gp": 5
                 },
-                "throwing_axe": {
-                    "min": 10,
-                    "max": 12,
-                    "name": "Throwing Axe",
-                    "description": "placeholder",
-                    "effect": "damage 1d4/1d4, thrown 10/20/30 (ROF 1/1)",
-                    "xp": 0,
-                    "gp": 10
-                },
-                "axe": {
-                    "min": 13,
-                    "max": 17,
-                    "name": "Axe",
-                    "description": "placeholder",
-                    "effect": "damage 1d6/1d6",
-                    "xp": 0,
-                    "gp": 10
-                },
-                "large_axe": {
+                "battle_axe": {
                     "min": 18,
-                    "max": 21,
-                    "name": "Large Axe",
+                    "max": 32,
+                    "name": "Battle Axe",
                     "description": "placeholder",
                     "effect": "damage 1d6+1/1d6",
                     "xp": 0,
-                    "gp": 15
-                },
-                "broad_axe": {
-                    "min": 22,
-                    "max": 24,
-                    "name": "Broad Axe",
-                    "description": "placeholder",
-                    "effect": "damage 1d6+1/1d6+1",
-                    "xp": 0,
-                    "gp": 20
-                },
-                "battle_axe": {
-                    "min": 25,
-                    "max": 30,
-                    "name": "Battle Axe",
-                    "description": "placeholder",
-                    "effect": "damage 1d8/1d8 two-handed",
-                    "xp": 0,
                     "gp": 50
-                },
-                "great_axe": {
-                    "min": 31,
-                    "max": 32,
-                    "name": "Great Axe",
-                    "description": "placeholder",
-                    "effect": "damage 1d10/1d10 two-handed, minimum Strength 18",
-                    "xp": 0,
-                    "gp": 200
                 },
                 "giant_axe": {
                     "min": 33,
                     "max": 999,
                     "name": "Giant Axe",
                     "description": "placeholder",
-                    "effect": "damage 1d12/2d8 two-handed, minimum Strength 18(00)",
+                    "effect": "damage 1d12/2d8 two-handed",
                     "xp": 0,
                     "gp": 200
                 }
@@ -1089,75 +927,39 @@
                 },
                 "short_bow": {
                     "min": 6,
-                    "max": 9,
+                    "max": 12,
                     "name": "Short Bow",
                     "description": "placeholder",
                     "effect": "fired 50/100/150 (2/1 ROF), 1d6/1d6",
                     "xp": 0,
                     "gp": 30
                 },
-                "hunter's_bow": {
-                    "min": 10,
-                    "max": 11,
-                    "name": "Hunter's Bow",
-                    "description": "placeholder",
-                    "effect": "fired 50/100/160 (2/1 ROF), 1d8/1d8",
-                    "xp": 0,
-                    "gp": 50
-                },
                 "long_bow": {
                     "min": 12,
-                    "max": 17,
+                    "max": 19,
                     "name": "Long Bow",
                     "description": "placeholder",
-                    "effect": "fired 50/100/170 (2/1 ROF), 1d8/1d8",
+                    "effect": "fired 70/140/210 (2/1 ROF), 1d6/1d6",
                     "xp": 0,
                     "gp": 75
                 },
-                "composite_bow": {
+                "composite_short_bow": {
                     "min": 18,
-                    "max": 21,
-                    "name": "Composite Bow",
+                    "max": 26,
+                    "name": "Composite Short Bow",
                     "description": "placeholder",
-                    "effect": "fired 40/80/170 (2/1 ROF), 1d8/1d8",
+                    "effect": "fired 50/100/180 (2/1 ROF), 1d6/1d6",
                     "xp": 0,
                     "gp": 100
                 },
-                "short_battle_bow": {
-                    "min": 22,
-                    "max": 24,
-                    "name": "Short Battle Bow",
-                    "description": "placeholder",
-                    "effect": "fired 50/100/150 (2/1 ROF), 1d8/1d8+1",
-                    "xp": 0,
-                    "gp": 150
-                },
-                "short_war_bow": {
-                    "min": 25,
-                    "max": 29,
-                    "name": "Short War Bow",
-                    "description": "placeholder",
-                    "effect": "fired 50/100/150 (2/1 ROF), 1d8+1/1d8+1",
-                    "xp": 0,
-                    "gp": 250
-                },
-                "long_battle_bow": {
-                    "min": 30,
-                    "max": 31,
-                    "name": "Long Battle Bow",
-                    "description": "placeholder",
-                    "effect": "fired 50/100/170 (2/1 ROF), 1d8/1d8+1",
-                    "xp": 0,
-                    "gp": 300
-                },
-                "long_war_bow": {
-                    "min": 32,
+                "composite_long_bow": {
+                    "min": 18,
                     "max": 999,
-                    "name": "Long War Bow",
+                    "name": "Composite Long Bow",
                     "description": "placeholder",
-                    "effect": "fired 50/100/170 (2/1 ROF), 1d8+1/1d8+1",
+                    "effect": "fired 60/120/210 (2/1 ROF), 1d6/1d6",
                     "xp": 0,
-                    "gp": 500
+                    "gp": 200
                 }
             },
             "crossbows": {
@@ -1172,33 +974,15 @@
                 },
                 "light_crossbow": {
                     "min": 6,
-                    "max": 12,
+                    "max": 13,
                     "name": "Light Crossbow",
                     "description": "placeholder",
                     "effect": "fired 60/120/180 (1/1 ROF), 1d4/1d4",
                     "xp": 0,
                     "gp": 40
                 },
-                "crossbow": {
-                    "min": 13,
-                    "max": 18,
-                    "name": "Crossbow",
-                    "description": "placeholder",
-                    "effect": "fired 70/140/210 (1/1 ROF), 1d4/1d6",
-                    "xp": 0,
-                    "gp": 80
-                },
-                "repeating_crossbow": {
-                    "min": 19,
-                    "max": 19,
-                    "name": "Repeating Crossbow",
-                    "description": "placeholder",
-                    "effect": "fired 40/60/80 (up to 5/1 ROF), 1d3/1d3, needs 1 round reloading after 5 shots",
-                    "xp": 0,
-                    "gp": 200
-                },
                 "heavy_crossbow": {
-                    "min": 20,
+                    "min": 14,
                     "max": 999,
                     "name": "Heavy Crossbow",
                     "description": "placeholder",
@@ -1231,7 +1015,7 @@
                     "max": 12,
                     "name": "Bone Wand",
                     "description": "placeholder",
-                    "effect": "damage 1d3/1d2 one-handed, use restricted to necromancers",
+                    "effect": "damage 1d3/1d2 one-handed, use restricted to magic users",
                     "xp": 0,
                     "gp": 70
                 },
@@ -1240,7 +1024,7 @@
                     "max": 13,
                     "name": "Yew Wand",
                     "description": "placeholder",
-                    "effect": "damage 1d2/1d3 one-handed, use restricted to sorcerers and druids",
+                    "effect": "damage 1d2/1d3 one-handed, use restricted to druids",
                     "xp": 0,
                     "gp": 80
                 },
@@ -1255,59 +1039,14 @@
                 }
             },
             "staves": {
-                "short_staff": {
+                "quarter_staff": {
                     "min": 1,
-                    "max": 9,
-                    "name": "Short Staff",
+                    "max": 999,
+                    "name": "Quarter Staff",
                     "description": "placeholder",
-                    "effect": "damage 1d4/1d4 one-handed",
+                    "effect": "damage 1d6/1d6 one-handed",
                     "xp": 0,
                     "gp": 10
-                },
-                "long_staff": {
-                    "min": 10,
-                    "max": 18,
-                    "name": "Long Staff",
-                    "description": "placeholder",
-                    "effect": "damage 1d6/1d6 two-handed",
-                    "xp": 0,
-                    "gp": 25
-                },
-                "gnarled_staff": {
-                    "min": 19,
-                    "max": 21,
-                    "name": "Gnarled Staff",
-                    "description": "placeholder",
-                    "effect": "damage 1d6/1d6+1 two-handed",
-                    "xp": 0,
-                    "gp": 30
-                },
-                "composite_staff": {
-                    "min": 22,
-                    "max": 24,
-                    "name": "Composite Staff",
-                    "description": "placeholder",
-                    "effect": "damage 1d6+1/1d6+1 two-handed",
-                    "xp": 0,
-                    "gp": 50
-                },
-                "battle_staff": {
-                    "min": 25,
-                    "max": 30,
-                    "name": "Battle Staff",
-                    "description": "placeholder",
-                    "effect": "damage 1d6+1/1d8 two-handed",
-                    "xp": 0,
-                    "gp": 75
-                },
-                "war_staff": {
-                    "min": 31,
-                    "max": 999,
-                    "name": "War Staff",
-                    "description": "placeholder",
-                    "effect": "damage 1d8/1d8 two-handed",
-                    "xp": 0,
-                    "gp": 100
                 }
             },
             "accessories": {

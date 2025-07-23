@@ -11,10 +11,10 @@ This project is a loot generator inspired by Diablo 2, designed for use in AD&D 
 - Output logs to CSV for tracking generated treasure
 
 ## To-Do
-- Add customized loot table with only weapons and armor more appropriate to AD&D 1e
+~~- Add customized loot table with only weapons and armor more appropriate to AD&D 1e~~
 - Add recommended sell price to items in the UI (gp value * 0.25)
 ~~- Upload downloadable .zip version with python included~~
-- Add automatic updating capability to the start-windows.bat script
+~~- Add automatic updating capability to the start-windows.bat script~~
 ~~- Add Linux installation instructions~~
 - Consider adding all spells to facilitate rolling the specific spell for items that include spells
 
@@ -51,10 +51,14 @@ cd Dragons_Maw_Loot_Gen
 ```
 
 ### 4. Install Dependancies and Run the Application
-1. Run: start-windows.bat
+1. Run: `start-windows.bat`
     This will attempt to create a Python Virtual Environment and install dependencies on the first run and will launch normally without reinstalling afterwards. 
     If you would prefer to create your own venv it should be named `venv` and be located in the root of this repository. Be sure to install requirements.txt if you create your own venv.
 2. The application should then be accessible via your web browser, usually at `http://127.0.0.1:7860`.
+
+## Updating
+1. Run: `update-windows.bat`
+That's it... Really. Just let it finish, if no errors are given, your application is now up to date and you can launch it normally.
 
 ---
 
