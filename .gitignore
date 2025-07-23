@@ -1,3 +1,4 @@
 _pycache_
 venv
-loot_tables\*
+loot_tables/*
+!loot_tables/.gitkeep
