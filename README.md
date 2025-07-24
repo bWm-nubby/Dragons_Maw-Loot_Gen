@@ -11,11 +11,11 @@ This project is a loot generator inspired by Diablo 2, designed for use in AD&D 
 - Output logs to CSV for tracking generated treasure
 
 ## To-Do
-~~- Add customized loot table with only weapons and armor more appropriate to AD&D 1e~~
+- ~~Add customized loot table with only weapons and armor more appropriate to AD&D 1e~~
 - Add recommended sell price to items in the UI (gp value * 0.25)
-~~- Upload downloadable .zip version with python included~~
-~~- Add automatic updating capability to the start-windows.bat script~~
-~~- Add Linux installation instructions~~
+- ~~Upload downloadable .zip version with python included~~
+- ~~Add automatic updating capability to the start-windows.bat script~~
+- ~~Add Linux installation instructions~~
 - Consider adding all spells to facilitate rolling the specific spell for items that include spells
 
 ---
