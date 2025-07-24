@@ -4,6 +4,11 @@
 echo Checking for updates...
 echo.
 
+:: Add portable git to path if it exists
+if exist ".\portable\PortableGit\bin" (
+    set "PATH=.\portable\PortableGit\bin;%PATH%"
+)
+
 :: The core git command to download and merge changes.
 git pull
 

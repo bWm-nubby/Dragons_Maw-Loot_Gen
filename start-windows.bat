@@ -6,7 +6,7 @@ setlocal ENABLEDELAYEDEXPANSION
 :: ========================================================
 
 :: --- Configuration ---
-set "PORTABLE_PYTHON_DIR=.\python\python-3.12.10-embed-amd64"
+set "PORTABLE_PYTHON_DIR=.\portable\python-3.12.10-embed-amd64"
 set "VENV_DIR=.\venv"
 set "SCRIPT_TO_RUN=app.py"
 set "REQUIREMENTS_FILE=requirements.txt"
