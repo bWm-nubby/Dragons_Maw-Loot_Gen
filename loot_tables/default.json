@@ -2797,7 +2797,8 @@
                     "min": 11,
                     "max": 11,
                     "name": "Tangerine",
-                    "description": "+2 save vs. lightning",
+                    "description": "placeholder",
+                    "effect": "+2 save vs. lightning",
                     "xp": 800,
                     "gp": 4000
                 },
