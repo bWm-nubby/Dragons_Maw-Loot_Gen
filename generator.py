@@ -13,14 +13,14 @@ def get_available_loot_tables() -> list[str]:
     if not os.path.isdir(LOOT_TABLES_DIR):
         print(f"Warning: Loot tables directory not found at {LOOT_TABLES_DIR}")
         return [DEFAULT_LOOT_TABLE]
-    
+
     files = [f for f in os.listdir(LOOT_TABLES_DIR) if f.endswith('.json')]
-    
+
     # Ensure 'default.json' is always first in the list if it exists
     if DEFAULT_LOOT_TABLE in files:
         files.remove(DEFAULT_LOOT_TABLE)
         files.insert(0, DEFAULT_LOOT_TABLE)
-        
+
     return files
 
 
@@ -45,10 +45,10 @@ class LootTable:
         self.max: Optional[int] = entry_data.get('max')
         self.name: Optional[str] = entry_data.get('name') # User-friendly name
         self.description: Optional[str] = entry_data.get('description')
-        
+
         die_size_val = entry_data.get('die_size')
         self.die_size: Optional[int] = int(die_size_val) if die_size_val is not None else None
-        
+
         self.mod: Optional[int] = entry_data.get('mod')
         self.add_level: Optional[bool] = entry_data.get('add_level')
         self.ps_die_size: Optional[int] = entry_data.get('ps_die_size')
@@ -72,7 +72,7 @@ class LootGenerator:
         self.results_log.append({"description": description, "roll": roll, "die_size": die_size})
         return roll
 
-    def PrimaryTreasureRoller(self) -> tuple[Union[LootTable, str], int]:
+    def primary_treasure_roller(self) -> tuple[Union[LootTable, str], int]:
         primary_treasure_data = self.loot_table['loot_tables']['primary_treasure_roll']
         primary_treasure_types = primary_treasure_data['type']
         die_size = primary_treasure_data.get('die_size')
@@ -100,7 +100,7 @@ class LootGenerator:
 
         return 'Roll outside expected range.', primary_roll
 
-    def NormalTreasureRoller(self, normal_treasure_data: Dict[str, Any]) -> int:
+    def normal_treasure_roller(self, normal_treasure_data: Dict[str, Any]) -> int:
         die_size = normal_treasure_data.get('die_size')
         mod = normal_treasure_data.get('mod', 0)
         mult_level = normal_treasure_data.get('mult_level', False)
@@ -114,8 +114,8 @@ class LootGenerator:
             return normal_roll * self.set_level + mod
         else:
             return normal_roll + mod
-        
-    def AdvancedTreasureRoller(self) -> tuple[Union[LootTable, str], int, int, bool, bool]:
+
+    def advanced_treasure_roller(self) -> tuple[Union[LootTable, str], int, int, bool, bool]:
         advanced_treasure_data = self.loot_table['loot_tables']['advanced_treasure_roll']
         advanced_treasure_types = advanced_treasure_data['type']
         die_size = advanced_treasure_data.get('die_size')
@@ -123,7 +123,7 @@ class LootGenerator:
 
         if die_size is None:
             raise ValueError("advanced_treasure_roll entry in the loot table requires a 'die_size' to be defined.")
-        
+
         advanced_roll = self._roll_and_log(die_size, "Advanced Treasure Roll")
         if add_level:
             original_roll = advanced_roll
@@ -146,15 +146,16 @@ class LootGenerator:
 
         return 'Roll outside expected range.', advanced_roll, 0, False, False
 
-    def BaseItemTypeRoller(self, type_die_size: int) -> tuple[Union[LootTable, str], int]:
+    def base_item_type_roller(self, type_die_size: int) -> tuple[Union[LootTable, str], int]:
         base_item_type_data = self.loot_table['loot_tables']['base_item_type']
         base_item_type_types = base_item_type_data['type']
-        item_die_size = base_item_type_data.get('die_size')
-        item_add_level = base_item_type_data.get('add_level', False)
-        item_ps_die_size = base_item_type_data.get('ps_die_size')
-        item_ps_mod = base_item_type_data.get('ps_mod', 0)
-        item_use_prefix = base_item_type_data.get('use_prefix', False)
-        item_use_suffix = base_item_type_data.get('use_suffix', False)
+        # The following commented lines are placeholders for potential future use.
+        #item_die_size = base_item_type_data.get('die_size')
+        #item_add_level = base_item_type_data.get('add_level', False)
+        #item_ps_die_size = base_item_type_data.get('ps_die_size')
+        #item_ps_mod = base_item_type_data.get('ps_mod', 0)
+        #item_use_prefix = base_item_type_data.get('use_prefix', False)
+        #item_use_suffix = base_item_type_data.get('use_suffix', False)
 
         if type_die_size is None:
             raise ValueError("All type keys under advanced_treasure_roll in the loot table require a 'die_size' to be defined.")
@@ -170,8 +171,8 @@ class LootGenerator:
                 return loot_table_entry, base_item_type_roll
 
         return 'Roll outside expected range.', base_item_type_roll
-    
-    def BaseItemRoller(self, item_type_result: LootTable) -> tuple[Union[LootTable, str], int]:
+
+    def base_item_roller(self, item_type_result: LootTable) -> tuple[Union[LootTable, str], int]:
         base_item_category = item_type_result.key
         die_size = item_type_result.die_size
         add_level = item_type_result.add_level
@@ -212,7 +213,7 @@ class LootGenerator:
 
         return 'Roll outside expected range.', roll
 
-    def GemTypeRoller(self) -> tuple[Union[LootTable, str], int]:
+    def gem_type_roller(self) -> tuple[Union[LootTable, str], int]:
         gem_type_data = self.loot_table['gems']
         die_size = gem_type_data.get('die_size')
 
@@ -234,7 +235,7 @@ class LootGenerator:
 
         return 'Roll outside expected range.', roll
 
-    def BodyPartRoller(self) -> tuple[Union[LootTable, str], int]:
+    def body_part_roller(self) -> tuple[Union[LootTable, str], int]:
         body_part_data = self.loot_table['monstrous_body_part']
         die_size = body_part_data.get('die_size')
 
@@ -255,8 +256,8 @@ class LootGenerator:
                 return loot_table_entry, roll
 
         return 'Roll outside expected range.', roll
-    
-    def AffixTypeRoller(self, adv_result: LootTable, item_type_result: LootTable) -> None:
+
+    def affix_type_roller(self, adv_result: LootTable, item_type_result: LootTable) -> None:
         def _roll_and_apply_affix(is_prefix: bool):
             affix_type_str = "prefixes" if is_prefix else "suffixes"
             log_affix_type = "Prefix" if is_prefix else "Suffix"
@@ -320,8 +321,8 @@ class LootGenerator:
                 })
                 property_roll_die_size = item_type_result.ps_die_size
                 property_roll_mod = item_type_result.ps_mod
-            
-            self.AffixRoller(is_prefix, final_affix_type, property_roll_die_size, property_roll_mod)
+
+            self.affix_roller(is_prefix, final_affix_type, property_roll_die_size, property_roll_mod)
             self.results_log.append({"description": f"{log_affix_type} Type", "value": final_affix_type['name']})
 
         # Check for prefix
@@ -331,8 +332,8 @@ class LootGenerator:
         # Check for suffix
         if adv_result.use_suffix and item_type_result.use_suffix:
             _roll_and_apply_affix(is_prefix=False)
-        
-    def AffixRoller(self, is_prefix: bool, affix_type_info: Dict[str, Any], die_size: int, mod: int) -> Optional[str]:
+
+    def affix_roller(self, is_prefix: bool, affix_type_info: Dict[str, Any], die_size: int, mod: int) -> Optional[str]:
         """
         Rolls for a specific affix (prefix or suffix) based on the type and roll parameters.
         Returns the key of the rolled affix.
@@ -347,7 +348,7 @@ class LootGenerator:
             if data['name'] == affix_type_info['name']:
                 affix_table_key = key
                 break
-        
+
         if affix_table_key is None:
             self.results_log.append({"description": f"Could not find affix type key for name", "value": affix_type_info['name']})
             return None
@@ -359,13 +360,13 @@ class LootGenerator:
             return None
 
         property_table = affix_tables[affix_table_key]
-        
+
         if die_size is None:
             return None
 
         roll = self._roll_and_log(die_size, f"{log_kind} Roll")
         modified_roll = roll + mod
-        
+
         self.results_log.append({
             "description": f"{log_kind} Roll (modified)",
             "value": f"{roll} + {mod} = {modified_roll}"
@@ -381,13 +382,13 @@ class LootGenerator:
                     "gp": data.get('gp', 0)
                 })
                 return key
-        
+
         return None
-        
+
 
     def generate(self, mode: str = "Full") -> None:
         if mode == "Full":
-            result, roll = self.PrimaryTreasureRoller()
+            result, roll = self.primary_treasure_roller()
         elif mode == "Force Normal Treasure":
             result = LootTable("normal_treasure", self.loot_table['loot_tables']['primary_treasure_roll']['type']['normal_treasure'])
         elif mode == "Force Advanced Treasure":
@@ -395,14 +396,14 @@ class LootGenerator:
         elif mode == "Force Perishable":
             result = LootTable("advanced_treasure", self.loot_table['loot_tables']['primary_treasure_roll']['type']['advanced_treasure'])
         elif mode == "Gem Type":
-            gem_result, gem_roll = self.GemTypeRoller()
+            gem_result, gem_roll = self.gem_type_roller()
             if isinstance(gem_result, LootTable):
                 self.results_log.append({"description": "Gem Type", "value": gem_result.name})
             else:
                 self.results_log.append({"description": "Gem Type", "value": gem_result})
             return
         elif mode == "Monstrous Body Part Type":
-            body_part_result, body_part_roll = self.BodyPartRoller()
+            body_part_result, body_part_roll = self.body_part_roller()
             if isinstance(body_part_result, LootTable):
                 self.results_log.append({"description": "Monstrous Body Part", "value": body_part_result.name})
             else:
@@ -411,28 +412,28 @@ class LootGenerator:
 
         if isinstance(result, LootTable):
             if result.key == 'normal_treasure':
-                gold_amount = self.NormalTreasureRoller(result._raw_data)
+                gold_amount = self.normal_treasure_roller(result._raw_data)
                 self.results_log.append({"description": "Total Gold", "value": gold_amount})
             elif result.key == 'advanced_treasure':
                 if mode == "Force Perishable":
                     adv_result = LootTable("prefix_base_item_suffix", self.loot_table['loot_tables']['advanced_treasure_roll']['type']['prefix_base_item_suffix'])
                     type_die_size = adv_result.die_size
                 else:
-                    adv_result, adv_roll, type_die_size, use_prefix, use_suffix = self.AdvancedTreasureRoller()
-                
+                    adv_result, adv_roll, type_die_size, use_prefix, use_suffix = self.advanced_treasure_roller()
+
                 if isinstance(adv_result, LootTable):
                     self.results_log.append({"description": "Advanced Treasure Result", "value": adv_result.name})
                     if mode == "Force Perishable":
                         item_type_result = LootTable("perishables", self.loot_table['loot_tables']['base_item_type']['type']['perishables'])
                     else:
-                        item_type_result, item_type_roll = self.BaseItemTypeRoller(type_die_size)
+                        item_type_result, item_type_roll = self.base_item_type_roller(type_die_size)
 
                     if isinstance(item_type_result, LootTable):
                         self.results_log.append({"description": "Base Item Type", "value": item_type_result.name})
-                        base_item_result, base_item_roll = self.BaseItemRoller(item_type_result)
+                        base_item_result, base_item_roll = self.base_item_roller(item_type_result)
                         if isinstance(base_item_result, LootTable):
                             self.results_log.append({"description": "Base Item", "value": base_item_result.name})
-                            self.AffixTypeRoller(adv_result, item_type_result)
+                            self.affix_type_roller(adv_result, item_type_result)
                         else:
                             self.results_log.append({"description": "Base Item", "value": base_item_result})
                     else:
@@ -493,7 +494,7 @@ class LootGenerator:
         if is_cursed_item:
             log_str += "<span style='font-size:1.2em;'> Cursed Item</span><br>"
             log_str += "<br>"
-        log_str += "<span style='font-size:1.2em; font-weight:bold;'>Effects:</span><br>"       
+        log_str += "<span style='font-size:1.2em; font-weight:bold;'>Effects:</span><br>"
         if effects:
             log_str += "<ul>"
             for effect in effects:
@@ -504,7 +505,7 @@ class LootGenerator:
         log_str += f"<span style='font-size:1.1em;'>GP: {total_gp}</span><br>"
 
         return log_str
-    
+
     def get_user_friendly_csv(self) -> str:
         item_name = ""
         prefix = ""
@@ -513,7 +514,7 @@ class LootGenerator:
         total_xp = 0
         total_gp = 0
         is_cursed_item = False
-    
+
         for entry in self.results_log:
             if entry['description'] == "Base Item":
                 item_name = entry['value']
@@ -537,10 +538,10 @@ class LootGenerator:
                 item_name = entry['value']
             elif entry.get('description') in ("Prefix Type", "Suffix Type") and entry.get('value').lower() == 'cursed':
                 is_cursed_item = True
-    
+
         full_item_name = f"{prefix} {item_name} {suffix}".strip()
         effects_str = "; ".join([f"{e['name']}: {e['effect']}" for e in effects])
-    
+
         # CSV header and row
         csv_str = f'"{full_item_name}","{effects_str}",{total_xp},{total_gp},{is_cursed_item}\n'
         return csv_str
